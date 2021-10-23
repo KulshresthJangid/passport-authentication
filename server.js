@@ -16,6 +16,12 @@ const app = express();
 
 app.set('view engine', 'ejs')
 
+
+
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
@@ -23,9 +29,6 @@ app.use(session({
     cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
 }))
 
-
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
 app.use(passport.initialize())
 app.use(passport.session())
 
