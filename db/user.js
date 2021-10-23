@@ -31,6 +31,7 @@ const User = new mongoose.Schema({
 })
 
 User.plugin(passportLocalMongoose)
+User.plugin(findOrCreate)
 
 
 
